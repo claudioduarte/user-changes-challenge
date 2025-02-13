@@ -1,0 +1,27 @@
+{
+  "name": "user-changes-challenge",
+  "version": "1.0.0",
+  "description": "## Prerequisites",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Error: no build specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudioduarte/user-changes-challenge.git"
+  },
+  "keywords": [
+    "user",
+    "challenge"
+  ],
+  "author": "Cláudio Duarte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/claudioduarte/user-changes-challenge/issues"
+  },
+  "homepage": "https://github.com/claudioduarte/user-changes-challenge#readme"
+}
