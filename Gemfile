@@ -3,16 +3,16 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby "3.4.8"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.1', '>= 7.1.5.1'
+gem 'rails', '~> 7.2', '>= 7.2.3.1'
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem "puma", "~> 6.0"
 
 gem 'active_model_serializers'
 
@@ -55,6 +55,6 @@ group :development do
 end
 
 group :test do
-  gem 'rspec', '~> 3.10'
+  gem 'rspec', '~> 3.13', '>= 3.13.2'
   gem 'rspec-rails'
 end
