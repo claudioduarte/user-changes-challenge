@@ -5,8 +5,8 @@
 The setups steps expect following tools installed on the system.
 
 - PostgreSQL 14
-- Ruby 3.2.2
-- Rails 7.0.6
+- Ruby 3.4.8
+- Rails 7.2.3.1
 
 ## Installation
 
@@ -32,13 +32,14 @@ cd user-changes-challenge
 
 ```ruby
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-````
+```
 
 If you run into problems after the installation, please run the following commands:
 
 ```ruby
 (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/your_user/.zprofile
 ```
+
 ```ruby
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
@@ -93,6 +94,7 @@ bundle install
 ```
 
 If an error occurs, run command with `sudo` permissions
+
 ```ruby
 sudo bundle install
 ```
@@ -122,25 +124,29 @@ You can visit the website using the following URL: [http://localhost:3000](http:
 #### 12. Testing Endpoints
 
 Two endpoints can be called:
-````
+
+```
 POST /audits
 GET /audits
-````
+```
 
 ##### GET /audits
+
 This endpoint returns all audits that have been created so far.
 
 `GET http://localhost:3000/audits?start_date=START_DATE&end_date=END_DATE`
 
 Parameters included in the query string:
-````
+
+```
 Parameter  | Value
 -----------|-----
 start_date | YYYY-MM-DD format (YYYY = year, MM = month, DD = day of the month)
 end_date   | YYYY-MM-DD format (YYYY = year, MM = month, DD = day of the month)
-````
+```
 
 Sample response:
+
 ```json
 [
   {
@@ -154,33 +160,46 @@ Sample response:
     "new": "Soho Avenue"
   }
 ]
-````
-
+```
 
 ##### POST /audits
+
 This endpoint creates an audit for a model change.
 
 `POST http://localhost:3000/audits`
 
 Payload for the POST request:
+
 ```json
 {
-  "_id": 1,
-  "name": "Bruce Norries",
-  "address": {
-    "street": "Some street"
+  "audit": {
+    "model": "User",
+    "old": {
+      "_id": 1,
+      "name": "Bruce Norries",
+      "address": {
+        "street": "Some street"
+      }
+    },
+    "new": {
+      "_id": 1,
+      "name": "Bruce Willis",
+      "address": {
+        "street": "Nakatomi Plaza"
+      }
+    }
   }
 }
-
-````
+```
 
 Response:
+
 ```json
 {
   "status": 200,
   "success": "Audit created!"
 }
-````
+```
 
 #### 13. Run RSpec Tests
 
